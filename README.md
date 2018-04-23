@@ -1,9 +1,10 @@
 # bdd_equals
-Using bdd behave to write tests
+Using bdd behave to write tests. I have chosen to use my jsonequal class as the example 
+because RESTful is so common and I want to use it for this reason.
 
 #Usage 
 
-    bdd_equals\tests\features>behave
+    bdd_equals\tests\features>behave test_bdd_jsoneqauls2.feature
 
 #output
     
