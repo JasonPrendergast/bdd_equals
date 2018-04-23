@@ -1,4 +1,4 @@
-Feature: test cases jsonequal class
+Feature: test cases 2 jsonequal class
   #background will run before every scenario
   Background: Create context json string
     Given I create new context json string
@@ -8,7 +8,7 @@ Feature: test cases jsonequal class
     And I have a keypair 'value2' '<value2>'
     And I have a keypair 'description' '<description>'
     And I have last keypair 'equal' '<equal>'
-#    Then I should see 'True'
+    Then I should see '<equal>'
 
   Examples:
 		| value1                  | value2                   | description        | equal |

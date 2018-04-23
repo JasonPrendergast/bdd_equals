@@ -1,5 +1,6 @@
 from behave import given, then
-# import jsonequals
+import jsonequals
+import json
 
 # ==================================================================================================================== #
 
@@ -25,8 +26,19 @@ def i_have_pairkey_pairvalue(context, pairkey, pairvalue):
 # ==================================================================================================================== #
 @then('I should see {result}')
 def I_should_see_result(context, result):
+    testjson = str(context.jsonvaluepairstring).replace('\'', '\"')
+    testjson = json.loads(testjson)
+    testy = jsonequals.jsonequals(testjson)
+    testy = testy.jsonequals()
+    print(testy)
+    result = result.replace('\'', '')
+    if str(testy) == str(result):
+        return testjson['equal']
 
-    pass
+    else:
+        raise Exception("Unexpected text passed in.")
+
+
 
 
 
