@@ -1,4 +1,4 @@
-from behave import given, then
+from behave import given, then, when
 import jsonequals
 import json
 
@@ -24,19 +24,26 @@ def i_have_pairkey_pairvalue(context, pairkey, pairvalue):
 
     # ""'value2'":"'2017-06-16T21:36:48.362Z', ""'description'":"'equal date objects', ""'equal'":"'True'"}
 # ==================================================================================================================== #
+
+@when('I call the class')
+def i_call_the_class(context):
+    context.testjson = str(context.jsonvaluepairstring).replace('\'', '\"')
+    context.testjson = json.loads(context.testjson)
+    context.testy = jsonequals.jsonequals(context.testjson)
+    context.testy = context.testy.jsonequals()
+    print(context.testy)
+
+
+
 @then('I should see {result}')
-def I_should_see_result(context, result):
-    testjson = str(context.jsonvaluepairstring).replace('\'', '\"')
-    testjson = json.loads(testjson)
-    testy = jsonequals.jsonequals(testjson)
-    testy = testy.jsonequals()
-    print(testy)
-    result = result.replace('\'', '')
-    if str(testy) == str(result):
-        return testjson['equal']
+def i_should_see_result(context, result):
+    context.result = result.replace('\'', '')
+    if str(context.testy) == str(context.result):
+        return context.testjson['equal']
 
     else:
         raise Exception("Unexpected text passed in.")
+
 
 
 

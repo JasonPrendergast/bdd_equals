@@ -8,6 +8,7 @@ Feature: test cases 2 jsonequal class
     And I have a keypair 'value2' '<value2>'
     And I have a keypair 'description' '<description>'
     And I have last keypair 'equal' '<equal>'
+    When I call the class
     Then I should see '<equal>'
 
   Examples:

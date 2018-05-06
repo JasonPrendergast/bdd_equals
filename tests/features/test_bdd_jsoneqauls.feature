@@ -9,6 +9,7 @@ Feature: test cases jsonequal class
     And I have a keypair 'value2' '2017-06-16T21:36:48.362Z'
     And I have a keypair 'description' 'equal date objects'
     Given I have last keypair 'equal' 'True'
+    When I call the class
     Then I should see 'True'
 
 #  Examples:
