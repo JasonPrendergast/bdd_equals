@@ -6,7 +6,7 @@ because RESTful is so common and I want to use it for this reason.
 
     bdd_equals\tests\features>behave test_bdd_jsoneqauls2.feature
 
-#output
+#output to console
     
     Feature: test cases jsonequal class # test_bdd_jsoneqauls.feature:1
 
